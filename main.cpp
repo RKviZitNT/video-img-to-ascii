@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include"src/imgasciic.h"
+#include "src/asciic.h"
 
 int main(int argc, char** argv) {
     std::string gradient = " .:!/r(l1Z4H9W8$@";
@@ -9,9 +9,8 @@ int main(int argc, char** argv) {
     // " .:!/r(l1Z4H9W8$@"
     // " .:-=+*#%@"
 
-    Image image(argv[1]);
-    image.generateAsciiImg(std::stoi(argv[2]), gradient, false);
-    image.write_to_terminal();
+    Ascii ascii("D:\\Galery\\Images\\Saved\\Sea-of-thieves-logo.jpg");//argv[0]);
+    ascii.generateAscii(gradient, 50, 150, 70, false);//std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]), false);
 
     return 0;
 }
