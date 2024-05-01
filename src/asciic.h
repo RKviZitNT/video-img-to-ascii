@@ -1,5 +1,5 @@
-#ifndef IMGASCIIC_H
-#define IMGASCIIC_H
+#ifndef HEADER
+#define HEADER
 
 #include <opencv2/opencv.hpp>
 #include <fstream>
@@ -7,9 +7,9 @@
 #include <vector>
 #include <cmath>
 
-class Ascii {
+class Image {
 private:
-    std::string pathToFile;
+    cv::Mat image;
 
     std::vector<char> gradient, asciiImg;
 
@@ -20,14 +20,12 @@ private:
     bool inverse;
     std::string gradientStr;
 
-    void resize(cv::Mat& frame);
-    void frameAsciiConvert(cv::Mat& frame);
-
-    void generateImgAscii();
+    void resize();
+    void imgAsciiInit();
 
 public:
-    Ascii(std::string pathToFile);
-    void generateAscii(std::string gradientStr, int targetSize, int brightness, int contrast, bool inverse);
+    Image(const std::string& path);
+    void generateAsciiImg(std::string gradientStr, int targetSize, int brightness, int contrast, bool inverse);
     void write_to_terminal();
     void write_to_file(std::string filename);
 };
