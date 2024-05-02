@@ -7,11 +7,11 @@
 #include <vector>
 #include <cmath>
 
-class Image {
+class Ascii {
 private:
-    cv::Mat image;
+    std::string pathToFile;
 
-    std::vector<char> gradient, asciiImg;
+    std::vector<char> gradient, asciiFrame;
 
     int width, height;
     double scale;
@@ -20,14 +20,19 @@ private:
     bool inverse;
     std::string gradientStr;
 
-    void resize();
-    void imgAsciiInit();
+    void resize(cv::Mat& frame);
+    void AsciiInit(cv::Mat& frame);
+
+    void write_to_terminal();
+
+    void generateAsciiImage();
+    void generateAsciiVideo();
 
 public:
-    Image(const std::string& path);
-    void generateAsciiImg(std::string gradientStr, int targetSize, int brightness, int contrast, bool inverse);
-    void write_to_terminal();
-    void write_to_file(std::string filename);
+    Ascii(std::string pathToFile);
+    void generateAscii(std::string gradientStr, int targetSize, int brightness, int contrast, bool inverse);
+    
+    void saveAsciiImage(const std::string& outputPath);
 };
 
 #endif

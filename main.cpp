@@ -9,9 +9,8 @@ int main(int argc, char** argv) {
     // " .:!/r(l1Z4H9W8$@"
     // " .:-=+*#%@"
 
-    Image ascii("D:\\Galery\\Images\\Saved\\Sea-of-thieves-logo.jpg");//argv[0]);
-    ascii.generateAsciiImg(gradient, 50, 150, 70, false);//std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]), false);
-    ascii.write_to_terminal();
+    Ascii ascii("D:\\Galery\\Images\\Saved\\Sea-of-thieves-logo.jpg");//argv[0]);
+    ascii.generateAscii(gradient, 60, 150, 70, false);//std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]), false);
 
     return 0;
 }
