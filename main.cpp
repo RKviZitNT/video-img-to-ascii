@@ -9,8 +9,8 @@ int main(int argc, char** argv) {
     // " .:!/r(l1Z4H9W8$@"
     // " .:-=+*#%@"
 
-    Ascii ascii("D:\\Galery\\Images\\Saved\\Sea-of-thieves-logo.jpg");//argv[0]);
-    ascii.generateAscii(gradient, 60, 150, 70, false);//std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]), false);
+    Ascii ascii(argv[1]);
+    ascii.generateAscii(gradient, std::stoi(argv[2]), std::stoi(argv[3]), std::stoi(argv[4]), false);
 
     return 0;
 }

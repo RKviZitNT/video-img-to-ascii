@@ -52,17 +52,16 @@ void Ascii::generateAscii(std::string gradientStr, int targetSize, int brightnes
     this->contrast = std::max(std::min(contrast, 100), 0);
     this->inverse = inverse;
 
-    if (cv::haveImageReader(pathToFile)) {
-        Ascii::generateAsciiImage();
+    if (!cv::haveImageReader(pathToFile)) {
+        Ascii::generateAsciiVideo();
         return;
     }
     
-    Ascii::generateAsciiVideo();
+    Ascii::generateAsciiImage();
 }
 
 void Ascii::generateAsciiImage() {
     cv::Mat image = cv::imread(pathToFile);
-
     if (image.empty()) {
         std::cout << "Could not open or find the image" << std::endl;
         return;
@@ -88,8 +87,7 @@ void Ascii::generateAsciiVideo() {
     cv::Mat frame;
     while (true) {
         cap >> frame;
-
-        system("cls");
+        std::cout << "\033";
 
         if (frame.empty()) {
             break;
@@ -103,16 +101,19 @@ void Ascii::generateAsciiVideo() {
         Ascii::write_to_terminal();
         asciiFrame.clear();
 
-        cv::waitKey(frameTime);
+        cv::waitKey(frameTime / 2);
     }
 
     cap.release();
 }
 
 void Ascii::write_to_terminal() {
+    std::string asciiOutputFrame = "";
     for (int i = 0; i < asciiFrame.size(); i++) {
-        if ((i+1) % width == 0)
-            std::cout << std::endl;
-        std::cout << asciiFrame[i] << " ";
+        if ((i) % width == 0)
+            asciiOutputFrame += "\n";
+        asciiOutputFrame += asciiFrame[i];
+        asciiOutputFrame += " ";
     }
+    std::cout << asciiOutputFrame;
 }
