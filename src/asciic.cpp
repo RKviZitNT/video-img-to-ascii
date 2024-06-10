@@ -3,15 +3,9 @@
 Ascii::Ascii(std::string pathToFile) : pathToFile(pathToFile) {}
 
 void Ascii::resize(cv::Mat& frame) {
-    if (frame.cols > frame.rows) {
-        scale = (double)targetSize / frame.cols;
-        width = targetSize;
-        height = frame.rows * scale;
-    } else {
-        scale = (double)targetSize / frame.rows;
-        width = frame.cols * scale;
-        height = targetSize;
-    }
+    scale = (double)targetSize / frame.cols;
+    width = targetSize;
+    height = frame.rows * scale;
 
     cv::resize(frame, frame, cv::Size(width, height));
 }

@@ -1,3 +1,3 @@
 Using this program:
 ===
-```asciic PATHTOFILE(video or image) LARGERSIDESIZE(int) BRIGHTNESS(int(0-256)) CONTRAST(int(0-100))```
+```asciic PATHTOFILE(video or image) WIDTH(int) BRIGHTNESS(int(0-256)) CONTRAST(int(0-100))```
