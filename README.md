@@ -1,3 +1,5 @@
 Using this program:
 ===
-```asciic PATHTOFILE(video or image) WIDTH(int) BRIGHTNESS(int(0-256)) CONTRAST(int(0-100))```
+``` bash
+asciic PATHTOFILE(video or image) WIDTH(int) BRIGHTNESS(int(0-256)) CONTRAST(int(0-100))
+```
